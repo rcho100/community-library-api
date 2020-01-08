@@ -1,0 +1,2 @@
+class GrabsController < ApplicationController
+end
