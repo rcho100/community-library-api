@@ -16,9 +16,11 @@ ActiveRecord::Schema.define(version: 2020_01_08_225814) do
     t.string "title"
     t.string "author"
     t.boolean "available"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "genre"
+    t.index ["user_id"], name: "index_books_on_user_id"
   end
 
   create_table "grabs", force: :cascade do |t|
