@@ -33,7 +33,7 @@ puts "#{User.all.count} users created"
     Book.create!(
         title: Faker::Book.title,
         author: Faker::Book.author,
-        available: true
+        available: true,
         genre: Faker::Book.genre,
         user_id: user_1.id
     )
@@ -43,7 +43,7 @@ end
     Book.create!(
         title: Faker::Book.title,
         author: Faker::Book.author,
-        available: false
+        available: false,
         genre: Faker::Book.genre,
         user_id: user_1.id
     )
@@ -53,7 +53,7 @@ end
     Book.create!(
         title: Faker::Book.title,
         author: Faker::Book.author,
-        available: false
+        available: false,
         genre: Faker::Book.genre,
         user_id: user_2.id
     )
@@ -63,7 +63,7 @@ end
     Book.create!(
         title: Faker::Book.title,
         author: Faker::Book.author,
-        available: true
+        available: true,
         genre: Faker::Book.genre,
         user_id: user_3.id
     )
@@ -73,7 +73,7 @@ end
     Book.create!(
         title: Faker::Book.title,
         author: Faker::Book.author,
-        available: false
+        available: false,
         genre: Faker::Book.genre,
         user_id: user_4.id
     )
@@ -83,7 +83,7 @@ end
     Book.create!(
         title: Faker::Book.title,
         author: Faker::Book.author,
-        available: true
+        available: true,
         genre: Faker::Book.genre,
         user_id: user_5.id
     )
@@ -93,7 +93,7 @@ end
     Book.create!(
         title: Faker::Book.title,
         author: Faker::Book.author,
-        available: false
+        available: false,
         genre: Faker::Book.genre,
         user_id: user_6.id
     )
@@ -103,7 +103,7 @@ end
     Book.create!(
         title: Faker::Book.title,
         author: Faker::Book.author,
-        available: true
+        available: true,
         genre: Faker::Book.genre,
         user_id: user_6.id
     )
@@ -113,7 +113,7 @@ end
     Book.create!(
         title: Faker::Book.title,
         author: Faker::Book.author,
-        available: true
+        available: true,
         genre: Faker::Book.genre,
         user_id: user_7.id
     )
@@ -123,7 +123,7 @@ end
     Book.create!(
         title: Faker::Book.title,
         author: Faker::Book.author,
-        available: true
+        available: true,
         genre: Faker::Book.genre,
         user_id: user_8.id
     )
@@ -151,3 +151,12 @@ book_19 = Book.all[18]
 book_20 = Book.all[19]
 
 puts "#{Book.all.count} books created"
+
+Grab.create!(user_id: user_1.id, book_id: book_12.id)
+Grab.create!(user_id: user_2.id, book_id: book_9.id)
+Grab.create!(user_id: user_3.id, book_id: book_6.id)
+Grab.create!(user_id: user_5.id, book_id: book_13.id)
+Grab.create!(user_id: user_7.id, book_id: book_5.id)
+Grab.create!(user_id: user_9.id, book_id: book_4.id)
+
+puts "#{Grab.all.count} grabs created"
