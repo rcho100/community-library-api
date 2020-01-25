@@ -8,155 +8,95 @@
 
 
 #Users
-9.times do
-    User.create!(
-        name: Faker::Name.name,
-        email: Faker::Internet.email,
-        password: Faker::Internet.password
-    )
-end
-
-user_1 = User.all[0]
-user_2 = User.all[1]
-user_3 = User.all[2]
-user_4 = User.all[3]
-user_5 = User.all[4]
-user_6 = User.all[5]
-user_7 = User.all[6]
-user_8 = User.all[7]
-user_9 = User.all[8]
-
-puts "#{User.all.count} users created"
+user_1 = User.create!(
+    name: 'John',
+    email: 'john@example.com',
+    password: 'password'
+)
+user_2 = User.create!(
+    name: 'Abby',
+    email: 'abby@example.com',
+    password: 'password1'
+)
+user_3 = User.create!(
+    name: 'Dan',
+    email: 'dan@example.com',
+    password: 'password2'
+)
 
 #Books
-3.times do
-    Book.create!(
-        title: Faker::Book.title,
-        author: Faker::Book.author,
-        available: true,
-        genre: Faker::Book.genre,
-        user_id: user_1.id
-    )
-end
-
-1.times do
-    Book.create!(
-        title: Faker::Book.title,
-        author: Faker::Book.author,
-        available: false,
-        genre: Faker::Book.genre,
-        user_id: user_1.id
-    )
-end
-
-2.times do
-    Book.create!(
-        title: Faker::Book.title,
-        author: Faker::Book.author,
-        available: false,
-        genre: Faker::Book.genre,
-        user_id: user_2.id
-    )
-end
-
-2.times do
-    Book.create!(
-        title: Faker::Book.title,
-        author: Faker::Book.author,
-        available: true,
-        genre: Faker::Book.genre,
-        user_id: user_3.id
-    )
-end
-
-1.times do
-    Book.create!(
-        title: Faker::Book.title,
-        author: Faker::Book.author,
-        available: false,
-        genre: Faker::Book.genre,
-        user_id: user_4.id
-    )
-end
-
-2.times do
-    Book.create!(
-        title: Faker::Book.title,
-        author: Faker::Book.author,
-        available: true,
-        genre: Faker::Book.genre,
-        user_id: user_5.id
-    )
-end
-
-2.times do
-    Book.create!(
-        title: Faker::Book.title,
-        author: Faker::Book.author,
-        available: false,
-        genre: Faker::Book.genre,
-        user_id: user_6.id
-    )
-end
-
-1.times do
-    Book.create!(
-        title: Faker::Book.title,
-        author: Faker::Book.author,
-        available: true,
-        genre: Faker::Book.genre,
-        user_id: user_6.id
-    )
-end
-
-5.times do
-    Book.create!(
-        title: Faker::Book.title,
-        author: Faker::Book.author,
-        available: true,
-        genre: Faker::Book.genre,
-        user_id: user_7.id
-    )
-end
-
-1.times do
-    Book.create!(
-        title: Faker::Book.title,
-        author: Faker::Book.author,
-        available: true,
-        genre: Faker::Book.genre,
-        user_id: user_8.id
-    )
-end
-
-book_1 = Book.all[0]
-book_2 = Book.all[1]
-book_3 = Book.all[2]
-book_4 = Book.all[3]
-book_5 = Book.all[4]
-book_6 = Book.all[5]
-book_7 = Book.all[6]
-book_8 = Book.all[7]
-book_9 = Book.all[8]
-book_10 = Book.all[9]
-book_11 = Book.all[10]
-book_12 = Book.all[11]
-book_13 = Book.all[12]
-book_14 = Book.all[13]
-book_15 = Book.all[14]
-book_16 = Book.all[15]
-book_17 = Book.all[16]
-book_18 = Book.all[17]
-book_19 = Book.all[18]
-book_20 = Book.all[19]
-
-puts "#{Book.all.count} books created"
-
-Grab.create!(user_id: user_1.id, book_id: book_12.id)
-Grab.create!(user_id: user_2.id, book_id: book_9.id)
-Grab.create!(user_id: user_3.id, book_id: book_6.id)
-Grab.create!(user_id: user_5.id, book_id: book_13.id)
-Grab.create!(user_id: user_7.id, book_id: book_5.id)
-Grab.create!(user_id: user_9.id, book_id: book_4.id)
-
-puts "#{Grab.all.count} grabs created"
+book_1 = Book.create!(
+    title: 'Animal Farm',
+    author: 'George Orwell',
+    available: true
+)
+book_2 = Book.create!(
+    title: '1984',
+    author: 'George Orwell',
+    available: true
+)
+book_3 = Book.create!(
+    title: 'Great Expectations',
+    author: 'Charles Dickens',
+    available: true
+)
+book_4 = Book.create!(
+    title: 'The Great Gatsby',
+    author: 'F. Scott Fitzgerald',
+    available: true
+)
+book_5 = Book.create!(
+    title: 'To Kill a Mockingbird',
+    author: 'Harper Lee',
+    available: true
+)
+book_6 = Book.create!(
+    title: 'Fahrenheit 451',
+    author: 'Ray Bradbury',
+    available: true
+)
+book_7 = Book.create!(
+    title: 'The Outsiders',
+    author: 'S. E. Hinton',
+    available: true
+)
+book_8 = Book.create!(
+    title: 'Hamlet',
+    author: 'William Shakespeare',
+    available: true
+)
+book_9 = Book.create!(
+    title: 'Romeo and Juliet',
+    author: 'William Shakespeare',
+    available: true
+)
+book_10 = Book.create!(
+    title: 'Frankenstein',
+    author: 'Mary Shelley',
+    available: true
+)
+book_11 = Book.create!(
+    title: 'Little Women',
+    author: 'Louisa May Alcott',
+    available: true
+)
+book_12 = Book.create!(
+    title: 'The Grapes of Wrath',
+    author: 'John Steinbeck',
+    available: true
+)
+book_13 = Book.create!(
+    title: 'The Old Man and the Sea',
+    author: 'Ernest Hemingway',
+    available: true
+)
+book_14 = Book.create!(
+    title: 'Invisible Man',
+    author: 'Ralph Ellison',
+    available: true
+)
+book_15 = Book.create!(
+    title: 'Death of a Salesman',
+    author: 'Arthur Miller',
+    available: true
+)
