@@ -7,23 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-#Users
-user_1 = User.create!(
-    name: 'John',
-    email: 'john@example.com',
-    password: 'password'
-)
-user_2 = User.create!(
-    name: 'Abby',
-    email: 'abby@example.com',
-    password: 'password1'
-)
-user_3 = User.create!(
-    name: 'Dan',
-    email: 'dan@example.com',
-    password: 'password2'
-)
-
 #Books
 book_1 = Book.create!(
     title: 'Animal Farm',
