@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  post '/signup', to: 'users#create'
+
   resources :grabs
   resources :books
   resources :users
