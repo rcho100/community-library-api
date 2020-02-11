@@ -1,8 +1,13 @@
 class ApplicationController < ActionController::API
     before_action :authorized
 
+    JWT_SECRET = ENV["JWT_SECRET"]
+
     def encode_token(payload)
-        JWT.encode(payload, 'mysecret')#'mysecret is temp secret'
+        payload_with_exp = payload
+        exp = 1.hours.from_now.to_i
+        payload_with_exp[:exp] = exp
+        JWT.encode(payload_with_exp, JWT_SECRET)
     end
 
     def auth_header
@@ -13,8 +18,8 @@ class ApplicationController < ActionController::API
         if auth_header
             token = auth_header.split(' ')[1]
             begin
-                JWT.decode(token, 'mysecret')#'mysecret is temp secret'
-            rescue JWT::DecodeError
+                JWT.decode(token, JWT_SECRET)
+            rescue JWT::DecodeError, JWT::ExpiredSignature, JWT::VerificationError
                 nil
             end
         end
