@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   post 'signup', to: 'users#create'
   post 'login', to: 'auth#create'
   delete 'logout', to: 'auth#create'
-  patch 'borrow', to: 'books#borrow'
-  patch 'return', to: 'books#return'
+  patch 'books/:id/borrow', to: 'books#borrow'
+  patch 'books/:id/return', to: 'books#return'
 
   resources :grabs
   resources :books
