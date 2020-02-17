@@ -15,8 +15,9 @@ class BooksController < ApplicationController
 
     def borrow
         book = Book.find_by_id(book_params[:id])
-        if book
+        if book.available
             book.available = !book.available
+            book.save
             options = {
                 include: [:users, :grabs]
             }
@@ -24,7 +25,6 @@ class BooksController < ApplicationController
         else
             render json: {message: "Book not found"}, status: :not_found
         end
-
     end
 
     private
