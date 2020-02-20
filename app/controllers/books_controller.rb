@@ -17,6 +17,7 @@ class BooksController < ApplicationController
         book = Book.find_by_id(book_params[:id])
         if book.available
             book.available = !book.available
+            grab = Grab.create(user_id: current_user.id, book_id: book.id)
             book.save
             options = {
                 include: [:users, :grabs]
