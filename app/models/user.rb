@@ -3,4 +3,5 @@ class User < ApplicationRecord
     has_many :books, through: :grabs
     
     has_secure_password
+    validates :email, uniqueness: { case_sensitive: false }
 end
