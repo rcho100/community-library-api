@@ -5,7 +5,7 @@ class ApplicationController < ActionController::API
 
     def encode_token(payload)
         payload_with_exp = payload
-        exp = 1.hours.from_now.to_i
+        exp = (Time.now + 10.minutes).to_i
         payload_with_exp[:exp] = exp
         JWT.encode(payload_with_exp, JWT_SECRET)
     end
@@ -18,7 +18,7 @@ class ApplicationController < ActionController::API
         if auth_header
             token = auth_header.split(' ')[1]
             begin
-                JWT.decode(token, JWT_SECRET)
+                JWT.decode(token, JWT_SECRET, true, algorithm: 'HS256')
             rescue JWT::DecodeError, JWT::ExpiredSignature, JWT::VerificationError
                 nil
             end
