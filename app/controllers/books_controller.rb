@@ -30,7 +30,7 @@ class BooksController < ApplicationController
     
     def return
         book = Book.find_by_id(book_params[:id])
-        if book & !book.available
+        if book && !book.available
             book.available = !book.available
             book.save
             options = {
