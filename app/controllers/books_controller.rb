@@ -32,6 +32,8 @@ class BooksController < ApplicationController
         book = Book.find_by_id(book_params[:id])
         if book && !book.available
             book.available = !book.available
+            book.grabs.first.destroy
+
             book.save
             options = {
                 include: [:users, :grabs]
