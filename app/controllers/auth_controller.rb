@@ -10,7 +10,7 @@ class AuthController < ApplicationController
             }
             render json: { user: UserSerializer.new(user, options), jwt: token }, status: :accepted
         else
-            render json: { message: 'Invalid username or password' }, status: :unauthorized
+            render json: { error: 'Incorrect email or password. Please try again.' }, status: :unauthorized
         end
     end
 
