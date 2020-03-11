@@ -22,7 +22,7 @@ class UsersController < ApplicationController
             }
             render json: { user: UserSerializer.new(user, options), jwt: token }, status: :created
         else
-            render json: { error: "failed to create user" }, status: :not_acceptable
+            render json: { error: "That email is already registered. Please try another email." }, status: :not_acceptable
         end
     end
 
