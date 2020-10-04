@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2020_01_24_192144) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "books", force: :cascade do |t|
     t.string "title"
     t.string "author"
@@ -21,8 +24,8 @@ ActiveRecord::Schema.define(version: 2020_01_24_192144) do
   end
 
   create_table "grabs", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "book_id"
+    t.bigint "user_id"
+    t.bigint "book_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["book_id"], name: "index_grabs_on_book_id"
@@ -37,4 +40,6 @@ ActiveRecord::Schema.define(version: 2020_01_24_192144) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "grabs", "books"
+  add_foreign_key "grabs", "users"
 end
